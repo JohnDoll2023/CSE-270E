@@ -1,0 +1,68 @@
+<!doctype html>
+<!--
+    John Doll
+    javascript program 2
+    CSE 270e
+    01/06/2023
+-->
+<html>
+    <head>
+        <title>dolljm-270-program2</title>
+    </head>
+    <body>
+        <div id="div" style="text-align: center;">
+            <script type='text/javascript'>
+                // declare variables
+                playCount = 0;
+                winCount = 0;
+                winningBox = 1;
+                userLost = false;
+                // create html display
+                html = "<h1>Three Card Monte</h1><br>";
+                html += "<span id='playCount'>Games played: " + playCount + "</span>";
+                html += "<span id='winCount'>  Wins: " + winCount + "</span><br>";
+                // create boxes and shuffle button
+                html += "<span id='box1' onclick='boxChosen(1)' style='border: solid black 1px; margin:10px'>Box 1</span>";
+                html += "<span id='box2' onclick='boxChosen(2)' style='border: solid black 1px; margin:10px'>Box 2</span>";
+                html += "<span id='box3' onclick='boxChosen(3)' style='border: solid black 1px; margin:10px'>Box 3</span>";
+                html += "<br><br><span onclick='shuffle()'>Shuffle</span>";
+                document.write(html);
+
+                // shuffle function
+                function shuffle() {
+                    userLost = false;
+                    // randomly choose winning box
+                    winningBox = Math.floor(Math.random() * 3) + 1;
+                    // reset boxes
+                    document.getElementById("box1").innerHTML = "Box 1";
+                    document.getElementById("box2").innerHTML = "Box 2";
+                    document.getElementById("box3").innerHTML = "Box 3";
+                    //update play count
+                    playCount++;
+                    document.getElementById("playCount").innerHTML = "Games played: " + playCount;
+                }
+
+                // box chosen function
+                function boxChosen(num) {
+                    if (num == winningBox) {
+                        // if the user has already won, do nothing
+                        if (document.getElementById("box" + num).innerHTML == "WIN") {
+                            return;
+                        }
+                        // set box to win
+                        document.getElementById("box" + num).innerHTML = "WIN";
+                        // update win count if the user didnt already chose a losing box
+                        if (!userLost) {
+                            winCount++;
+                            document.getElementById("winCount").innerHTML = "  Wins: " + winCount;
+                        }
+                    } else {
+                        // set box to lose
+                        userLost = true;
+                        document.getElementById("box" + num).innerHTML = "LOSE";
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>

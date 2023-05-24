@@ -1,0 +1,109 @@
+<!doctype html>
+<!--
+    John Doll
+    javascript program 1
+    CSE 270e
+    01/05/2023
+-->
+<html>
+    <head>
+        <title>dolljm-270-program1</title>
+    </head>
+    <body>
+        <div id="div">
+            <script type='text/javascript'>
+                // first create loader to wait for document to load
+                var loader = setInterval(function () {
+                    if(document.readyState !== "complete") return;
+                    clearInterval(loader);
+                    // now that document is loaded, do the rest of the work
+                    // h1 programming
+                    // generate min and max
+                    min = Math.random() * 100;
+                    max = Math.random() * 100;
+                    // round min and max
+                    min = Math.round(min);
+                    max = Math.round(max);
+                    // if min is greater than max, swap them
+                    if (min > max) {
+                        var temp = min;
+                        min = max;
+                        max = temp;
+                    }
+                    // create variable to hold html to be added later
+                    var html = "<h1> Set of numbers</h1><br>Min = " + min + ". Max = " + max + ".<br>";
+                    // add each number to html based on if even or odd
+                    for (index = min; index <= max; index++) {
+                        if (index % 2 == 0) {
+                            html += "<span style='color: red;'>" + index + "</span><br>";
+                        } else {
+                            html += "<span style='color: green;'>" + index + "</span><br>";
+                        }
+                    }
+
+                    // h2 programming
+                    html += "<h2>Colors</h2><br>";
+                    // loop through and create 20 random numbers
+                    nums = Math.random() * 20;
+                    nums = Math.round(nums) + 1;
+                    for(index = 0; index < nums; index++) {
+                        rand = Math.random() * 10000;
+                        rand = Math.round(rand);
+                        // set color to hotpink
+                        color = "hotpink";
+                        // if number is divisible by 3, change color to gray, if divisible by 5, change color to coral
+                        if (rand % 3 == 0) {
+                            color = "gray";
+                        } else if (rand % 5 == 0) {
+                            color = "coral";
+                        }
+                        // if color is hotpink, check if number is prime
+                        if (color == "hotpink") {
+                            for (index2 = 2; index2 < Math.sqrt(rand); index2++) {
+                                if (rand % index2 == 0) {
+                                    color = "white";
+                                    break;
+                                }
+                            }
+                        }
+                        // if number is prime, add prime to html
+                        prime = color == "hotpink" ? " - Prime" : "";
+                        // add number to html
+                        html += "<span style='border: solid black 1px; margin: 5px; font-size: 30px; background-color: " + color + ";'>" + rand + prime + "</span>";
+                    }
+
+                    // h3 programming
+                    html += "<h2>Words</h2><br>";
+                    // ask user for string
+                    userString = prompt("Enter a word please");
+                    // show them their string
+                    html += "You word was: " + userString + "<br>";
+                    // show the string in reverse
+                    html += "Your word backwards is: " + userString.split("").reverse().join("") + "<br>";
+                    // convert string to lowercase
+                    userString = userString.toLowerCase();
+                    // caeser cipher
+                    var caeser = "";
+                    for (index = 0; index < userString.length; index++) {
+                        // get the char number
+                        var charCode = userString.charCodeAt(index);
+                        // if the char num is a letter, add 5 to it
+                        if (charCode >= 97 && charCode <= 122) {
+                            charCode += 5;
+                            // if bigger than 122, put it back into a-z range
+                            if (charCode > 122) {
+                                charCode -= 26;
+                            }
+                            // add char to caeser
+                            caeser += String.fromCharCode(charCode);
+                        }
+                    }
+                    html += "Your word in ceaser cipher with key = 5 is: " + caeser + "<br>";
+
+                    // write html to page
+                    document.write(html);
+                }, 100);
+            </script>
+        </div>
+    </body>
+</html>

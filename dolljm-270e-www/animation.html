@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+    John Doll
+    javascript 2 - another program animation
+    CSE 270e
+    01/06/2023
+-->
+<html>
+    <head>
+        <title>dolljm-270-animation-program2</title>
+    </head>
+    <body>
+        <div id="div" style="text-align: center;">
+            <script type='text/javascript'>
+                // create elements for display
+                html = "<h1 id='h1' style='position:absolute;'>John Doll</h1><br>";
+                html += "<h1 id='h2' style='position:absolute;'>CSE 270e</h1><br>";
+                html += "<h1 id='h3' style='position:absolute;'>01/06/2023</h1><br>";
+                html += "<h1 id='h4' style='position:absolute;'>javascript 2 - another program animation</h1><br>";
+                document.write(html);
+
+                // timer
+                var loader = setInterval(function() {
+                    // make elements float around the screen
+                    var div = document.getElementById("div");
+                    var x1 = Math.floor(Math.random() * 800);
+                    var y1 = Math.floor(Math.random() * 800);
+                    var x2 = Math.floor(Math.random() * 800);
+                    var y2 = Math.floor(Math.random() * 800);
+                    var x3 = Math.floor(Math.random() * 800);
+                    var y3 = Math.floor(Math.random() * 800);
+                    var x4 = Math.floor(Math.random() * 800);
+                    var y4 = Math.floor(Math.random() * 800);
+
+                    // assign random color
+                    color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+                    document.getElementById("h1").style.color = color;
+                    color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+                    document.getElementById("h2").style.color = color;
+                    color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+                    document.getElementById("h3").style.color = color;
+                    color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+                    document.getElementById("h4").style.color = color;
+                    
+                    // assign elements to their positions
+                    document.getElementById("h1").style.left = x1 + "px";
+                    document.getElementById("h1").style.top = y1 + "px";
+                    document.getElementById("h2").style.left = x2 + "px";
+                    document.getElementById("h2").style.top = y2 + "px";
+                    document.getElementById("h3").style.left = x3 + "px";
+                    document.getElementById("h3").style.top = y3 + "px";
+                    document.getElementById("h4").style.left = x4 + "px";
+                    document.getElementById("h4").style.top = y4 + "px";
+                }, 3000);
+            </script>
+        </div>
+    </body>
+</html>

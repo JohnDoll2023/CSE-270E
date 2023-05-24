@@ -1,0 +1,60 @@
+<!doctype html>
+<!--
+    John Doll
+    javascript example
+    CSE 270e
+    01/04/2023
+-->
+<html>
+<head>
+<title>dolljm Javascript</title>
+<script type='text/javascript'>
+//Scott Campbell
+//Standard header
+//Javascript example program using events, objects...
+
+var customer={firstName:"Scott",lastName:"Campbell",id:"1",cnt:11,eyeColor:"blue"};
+var customer_list = [];
+customer_list.push(customer);
+
+var customer={firstName:"Sherrie",lastName:"Johnson",id:"2",cnt:22,eyeColor:"brown"};
+customer_list.push(customer);
+
+var customer={firstName:"Tawny",lastName:"Peterson",id:"3",cnt:-4,eyeColor:"green"};
+customer_list.push(customer);
+
+// first new customer
+var customer={firstName:"John",lastName:"Doll",id:"4",cnt:5,eyeColor:"brown"};
+customer_list.push(customer);
+
+// second new customer
+var customer={firstName:"Carson",lastName:"McCarthy",id:"5",cnt:23,eyeColor:"hazel"};
+customer_list.push(customer);
+
+function showCustomers() {
+	var message = "";
+	for (index=0,len=customer_list.length; index<len; index++) {
+		if (customer_list[index].cnt <0) {
+			message += "<li onMouseOver='customerEyeColor(" + index + ")'>Customer First name " + customer_list[index].firstName + " -- NEGATIVE</li>";
+		} else {
+			message += "<li onMouseOver='customerEyeColor(" + index + ")'>Customer First name " + customer_list[index].firstName + "</li>";
+		}
+	}
+	document.getElementById("msg").innerHTML = message;
+}
+
+// changed function to return eye color
+function customerEyeColor(id) {
+	document.getElementById("msg1").innerHTML = "Customer Eye Color is " + customer_list[id].eyeColor;
+}
+</script>
+
+
+</head>
+<body>
+<div onClick='showCustomers();'>Click to Show Customers</div>
+<div id="msg">Answer will go here</div>
+<br><br>
+<div id="msg1"></div>
+</body>
+<html>

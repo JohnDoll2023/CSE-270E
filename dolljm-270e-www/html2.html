@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+    John Doll
+    form example
+    CSE 270e
+    01/04/2023
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css1-1.css">
+        <script src="js1-3.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <title>HTML 2</title>
+    </head>
+    <body>
+        <!--row-->
+        <div class="row">
+            <!-- first column-->
+            <div class="col-sm-3">
+                <div>
+                    John Doll
+                </div>
+                <div>
+                    <img src="https://johnmdoll.com/images/IMG_1854.jpeg" width="60px"/>
+                </div>
+                <div>
+                    CSE 270E: JavaScript, NodeJs, Web Development
+                </div>
+            </div>
+            <!-- second column-->
+            <div class="col-sm-6">
+                <form action="http://ceclnx01.cec.miamioh.edu/~campbest/270e/form.php" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name"><br/>
+                    <label for="zipcode">Zipcode:</label>
+                    <input type="text" name="zipcode" id="zipcode" placeholder="#####"><br/>
+                    <label for="vehicle">Vehicle:</label>
+                    <!--selector-->
+                    <select id="vehicle" name="vehicle">
+                        <option value="old car">old car</option>
+                        <option value="new car">new car</option>
+                        <option value="old truck">old truck</option>
+                        <option value="new truck">new truck</option>
+                        <option value="sports car">sports car</option>
+                        <option value="other">other</option>
+                    </select><br/>
+                    <input type="submit" value="Enter">
+                </form>
+            </div>
+            <!-- third column-->
+            <div class="col-sm-3">
+                <a href="http://cse.miamioh.edu/">Miami CSE</a><br/>
+                <a href="http://miamioh.edu/">Miami University</a><br/>
+                <a href="https://johnmdoll.com/">My website</a>
+            </div>
+        </div>
+    </body>
+</html> 

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+  John Doll
+  CSE270e
+  01/06/2023
+
+  This page will display a form that will capture data, send it to the server, and then display the update from the server
+-->
+<html lang="en">
+  <head>
+    <title>Dolljm Forms Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="form-ajax.js"></script>
+
+
+  </head>
+  <body>
+
+    <div class="container"><!-- main container that holds the content-->
+      <div class="row">     <!-- Row1 Holds the header-->
+        <div class="col-sm-12 header">
+          <h1>Dolljm Forms Example</h1>
+        </div>
+      </div><!-- end row 1-->
+      <div class="row"> <!-- 2nd row-->
+        <div class="col-sm-8">  <!-- table data, left in the row-->
+          <div id="Left">
+            <h1>Results</h1>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>FirstName</th><th>LastName</th><th>MiamiUID</th><th>Hometown</th><th>Building</th><th>Faculty</th><th>Student</th><th>Comment</th><th>Current City</th><th>Year</th>
+                </tr>
+              </thead>
+              <tbody id='tabledata'>
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id='update'>Update</button>
+          </div>
+        </div><!-- end table data area-->
+        <div class="col-sm-4">  <!-- holds the form-->
+          <h2>User Information Form</h2>
+          <form id='myform'>
+            <div class="form-group">
+
+                <!-- first name-->
+              <label for="firstname" data-toggle="tooltip" title="At least 2 characters long">First Name:</label>
+              <input type="text" class="form-control" name="firstname" id="firstname" data-toggle="tooltip" title="at least 2 characters long">
+              <div class='alert alert-danger' id='firstnameError'>Input must be two letters</div>
+            </div>
+
+            <!-- last name-->
+            <div class="form-group">
+                <label for="lastname" data-toggle="tooltip" title="At least 2 characters long">Last Name:</label>
+                <input type="text" class="form-control" name="lastname" id="lastname" data-toggle="tooltip" title="at least 2 characters long">
+                <div class='alert alert-danger' id='lastnameError'>Input must be two letters</div>
+            </div>
+
+            <!-- miami uid-->
+            <div class="form-group">
+                <label for="miamiuid" data-toggle="tooltip" title="At least 2 characters long">Miami UID:</label>
+                <input type="text" class="form-control" name="miamiuid" id="miamiuid" data-toggle="tooltip" title="at least 2 characters long">
+                <div class='alert alert-danger' id='miamiuidError'>Input must be two letters</div>
+            </div>
+
+            <!-- hometown-->
+            <div class="form-group">
+                <label for="hometown" data-toggle="tooltip" title="At least 2 characters long">Hometown:</label>
+                <input type="text" class="form-control" name="hometown" id="hometown" data-toggle="tooltip" title="at least 2 characters long">
+                <div class='alert alert-danger' id='hometownError'>Input must be two letters</div>
+            </div>
+
+            Please check:
+            <div class="checkbox">
+              <label><input type="checkbox" id="faculty" value="Yes" name="faculty">Faculty</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" id="student" value="Yes" name="student">Student</label>
+            </div>
+
+            <!-- building-->
+            <div class="form-group">
+              <label for="bldg">Building</label>
+              <select class="form-control" id="bldg" name="bldg">
+                <option>Benton</option>
+                <option>Garland</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <!-- comment-->
+            <div class="form-group">
+                <label for="comment" data-toggle="tooltip" title="At least 2 characters long">Comment:</label>
+                <textarea class="form-control" rows="4" name="comment" id="comment" data-toggle="tooltip" title="at least 2 characters long">
+                </textarea>
+                <div class='alert alert-danger' id='commentError'>Input must be two letters</div>
+            </div>
+
+            <!-- current city-->
+            <div class="form-group">
+                <label for="currentcity" data-toggle="tooltip" title="At least 2 characters long">Current city:</label>
+                <input type="text" class="form-control" name="currentcity" id="currentcity" data-toggle="tooltip" title="at least 2 characters long">
+                <div class='alert alert-danger' id='currentcityError'>Input must be two letters</div>
+            </div>
+
+            <!-- year-->
+            <div class="form-group">
+                <label for="year">Year</label>
+                <select class="form-control" id="year" name="year">
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+            <div class='alert alert-danger' id='submitError'>Please fix form before submitting</div>
+            <input type='hidden' name='uid' value='dolljm'> <!-- make sure to update this value to your uid-->
+          </form>
+        </div>  <!-- ends the form area-->
+      </div>    <!-- ends the 2nd row-->
+
+      <div class="row"><!-- third row-->
+        <div class="col-sm-3"></div><!-- move messages over-->
+        <div class="col-sm-6">
+          <div id='messages'>
+          </div>
+
+          <div class="col-sm-3"></div>
+        </div><!-- end col-sm-6-->
+      </div> <!-- end third row-->
+      <div class="row"> <!-- 4th row-->
+        <div class="col-sm-12 footer">
+          (c) John Doll, CSE270, 2023
+        </div>
+      </div> <!-- end fourth row-->
+    </div> <!-- end continaer-->
+
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HTML 1-4</title>
+        <link rel="stylesheet" href="css1-1.css">
+    </head>
+    <header>
+        <div>
+            <p><img src="https://johnmdoll.com/images/IMG_1854.jpeg" width="60px"/>
+            John Doll
+            </p>    
+    </div>
+    </header>
+    <body>
+        <div id="leftdiv">
+            <form>
+                <label for="username">username:</label>
+                <input type="text" id="username" name="username"><br>
+                <label for="year">year:</label>
+                <select id="year" name="year">
+                    <option value="freshman">freshman</option>
+                    <option value="sophomore">sophomore</option>
+                    <option value="junior">junior</option>
+                    <option value="senior">senior</option>
+                    <option value="graduate">graduate</option>
+                    <option value="faculty">faculty</option>
+                </select><br>
+                <label for="currentstudent">current student:</label>
+                <input type="checkbox" id="currentstudent" name="currentstudent" value="currentstudent"><br>
+                <textarea id="comments" name="comments" rows="4" cols="20"></textarea><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Cancel">
+            </form>
+        </div>
+        <div id="rightdiv">
+            <h1>Results</h1>
+        </div>  
+    </body>
+    <footer style="bottom:0; position: fixed;">
+        <p> John Doll © 2023 <a href="http://cse.miamioh.edu/">Miami CSE</a></p>
+    </footer>
+</html>
